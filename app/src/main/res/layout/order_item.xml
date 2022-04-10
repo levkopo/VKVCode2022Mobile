@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="order"
+                type="ru.levkopo.vezdecodmobile.models.OrderModel"/>
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/store_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{order.name}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/address_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{order.address}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/delivery_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/delivery_time, order.getDeliveryTimeString())}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+
+    </LinearLayout>
+</layout>

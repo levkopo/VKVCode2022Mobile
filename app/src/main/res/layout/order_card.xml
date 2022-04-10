@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="order"
+                type="ru.levkopo.vezdecodmobile.models.OrderModel"/>
+    </data>
+
+    <ru.levkopo.vezdecodmobile.utils.NestedScrollableHost
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ru.levkopo.vezdecodmobile.widgets.FlingCardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:visibility="@{order!=null ? View.VISIBLE : View.GONE}">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/store_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{order.name}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/address_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{order.address}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.format(@string/delivery_time, order.getDeliveryTimeString())}"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reject_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="10dp"
+                    android:text="@string/reject"
+                    app:backgroundTint="@color/red"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/accept_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="10dp"
+                    android:text="@string/accept"
+                    app:backgroundTint="@color/green"/>
+
+        </ru.levkopo.vezdecodmobile.widgets.FlingCardView>
+
+    </ru.levkopo.vezdecodmobile.utils.NestedScrollableHost>
+</layout>

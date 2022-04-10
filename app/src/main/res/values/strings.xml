@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Вездекод Mobile</string>
+
+    <string name="active_order">Активные заказ</string>
+    <string name="orders_history">История заказов</string>
+    <string name="map">Карта</string>
+
+    <string name="reject_status">Отклонён</string>
+    <string name="complete_status">Завершён</string>
+    <string name="working_status">Активный</string>
+
+    <string name="reject">Отклонить</string>
+    <string name="accept">Принять</string>
+    <string name="order_is_active">У вас есть активный заказ</string>
+    <string name="complete_order">Завершить заказ</string>
+
+    <string name="ok">Хорошо</string>
+    <string name="order_accept">Заказ принят!</string>
+    <string name="your_position">Вы сейчас находитесь:</string>
+    <string name="loading">Загрузка…</string>
+    <string name="error">Неизвестная ошибка</string>
+    <string name="unknown">Неизвестно</string>
+    <string name="delivery_time">Доставить до: %s</string>
+</resources>

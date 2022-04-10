@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="order"
+                type="ru.levkopo.vezdecodmobile.models.OrderModel"/>
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:id="@+id/constraintLayout"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{order==null ? View.VISIBLE : View.GONE}">
+
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/order_active_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_is_active"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/complete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/complete_order"/>
+        </LinearLayout>
+
+        <include
+                android:id="@+id/order_card"
+                app:order="@{order}"
+                layout="@layout/order_card"/>
+
+    </FrameLayout>
+</layout>
